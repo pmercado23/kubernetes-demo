@@ -1,16 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: voting-service
+  name: redis
   labels:
-    name: voting-service
-    app: demo-voting-app
+    name: redis-service
+    app: guestbook-app
 spec:
-  type: LoadBalancer
   ports:
-    - port: 80
-      targetPort: 80
+    - port: 6379
+      targetPort: 6379
 
   selector:
-    name: voting-app-pod
-    app: demo-voting-app
+    name: redis-pod
+    app: guestbook-app
